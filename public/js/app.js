@@ -1,4 +1,3 @@
-console.log('Client side javascript file is run!')
 
 
 const weatherForm=document.querySelector('form')
