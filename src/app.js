@@ -49,9 +49,10 @@ app.get('/weather', (req, res) => {
             axios.get(`https://api.open-meteo.com/v1/forecast?latitude=${response.data[0].lat}&longitude=${response.data[0].lon}&current_weather=true&temperature_unit=fahrenheit&daily=sunrise&timezone=America/New_York&daily=apparent_temperature_max&daily=apparent_temperature_min&forecast_days=1&daily=precipitation_probability_mean&daily=uv_index_max&windspeed_unit=mph`)
                 .then(response => {
                     res.send({
-                        location: 'Location is : '+address,
-                        temperature: `Current temperature is: ${response.data.current_weather.temperature} F.`,
-                        windspeed:`Current windspeed is : ${response.data.current_weather.windspeed} mph.`,
+                        location: 'Location: '+address,
+                        timeZone:'Time Zone : '+response.data.timezone+".",
+                        temperature: `Current temperature is ${response.data.current_weather.temperature} F.`,
+                        windspeed:`Current windspeed is ${response.data.current_weather.windspeed} mph.`,
                         dailyTemperature:`Today's temperature is hign at ${response.data.daily.apparent_temperature_max}F and low at ${response.data.daily.apparent_temperature_min}F.`,
                         likelyrain:`There are ${response.data.daily.precipitation_probability_mean}% chance rain.`,
                         uv_index_max:`Today UV index is ${response.data.daily.uv_index_max}.`
