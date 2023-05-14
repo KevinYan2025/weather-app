@@ -3,7 +3,7 @@ const hbs = require('hbs')
 const path = require('path')
 const app = express()
 const axios=require('axios')
-const port =3000
+const port =process.env.PORT || 3000
 
 //define oaths for express config
 const publicDirectoryPath=path.join(__dirname,'../public')
